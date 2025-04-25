@@ -3,48 +3,26 @@
 import { useState, useEffect, useRef } from "react"
 import { Input } from "@/components/ui/input"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Send, BarChart2, Globe, Video, PlaneTakeoff, AudioLines } from "lucide-react"
+import { Search, Send } from "lucide-react"
 
-const allActions = [
+const actions = [
   {
     id: "1",
     label: "Book tickets",
-    icon: <PlaneTakeoff className="h-4 w-4 text-blue-500" />,
-    description: "anything",
+    description: "Book tickets easily",
     short: "⌘K",
-    end: "Agent",
   },
   {
     id: "2",
     label: "Summarize",
-    icon: <BarChart2 className="h-4 w-4 text-orange-500" />,
-    description: "kuch bhi ",
+    description: "Summarize text",
     short: "⌘cmd+p",
-    end: "Command",
   },
   {
     id: "3",
     label: "Screen Studio",
-    icon: <Video className="h-4 w-4 text-purple-500" />,
-    description: "main",
+    description: "Record your screen",
     short: "",
-    end: "Application",
-  },
-  {
-    id: "4",
-    label: "Talk to Jarvis",
-    icon: <AudioLines className="h-4 w-4 text-green-500" />,
-    description: "meri merzi",
-    short: "",
-    end: "Active",
-  },
-  {
-    id: "5",
-    label: "Translate",
-    icon: <Globe className="h-4 w-4 text-blue-500" />,
-    description: "jo bhi-4o",
-    short: "",
-    end: "Command",
   },
 ]
 
@@ -57,7 +35,7 @@ const highlightMatch = (text, query) => {
   )
 }
 
-function ActionSearchBar({ actions = allActions }) {
+function ActionSearchBar() {
   const [query, setQuery] = useState("")
   const [result, setResult] = useState(null)
   const [isFocused, setIsFocused] = useState(false)
@@ -130,101 +108,90 @@ function ActionSearchBar({ actions = allActions }) {
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto reletive">
-      <div className="relative flex flex-col items-center min-h-[300px]">
-        <div className="w-full max-w-sm sticky top-0 bg-black z-10 pt-6 pb-1">
-         
-          <div className="relative">
-            <Input
-              type="text"
-              placeholder="What's up?"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-              onKeyDown={handleKeyDown}
-              className="pl-3 pr-9 py-1.5 h-9 text-sm rounded-lg focus-visible:ring-offset-0"
-            />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4">
-              <AnimatePresence mode="popLayout">
-                {query.length > 0 ? (
-                  <motion.div
-                    key="send"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Send className="w-4 h-4 text-gray-400" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="search"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Search className="w-4 h-4 text-gray-400" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+    <div className="w-full max-w-xl mx-auto relative">
+      <div className="w-full max-w-sm sticky top-0 bg-black z-10 pt-5 pb-1">
+        <div className="relative">
+          <Input
+            type="text"
+            placeholder="Search actions"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+            onKeyDown={handleKeyDown}
+            className="pl-3 pr-9 py-1.5 h-9 text-sm rounded-lg focus-visible:ring-offset-0"
+          />
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4">
+            <AnimatePresence mode="popLayout">
+              {query.length > 0 ? (
+                <motion.div
+                  key="send"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 20, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Send className="w-4 h-4 text-gray-400" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="search"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 20, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Search className="w-4 h-4 text-gray-400" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
+      </div>
 
-        <div className="w-full max-w-sm">
-          <AnimatePresence>
-            {isFocused && result && (
-              <motion.div
-                className="w-full border rounded-md shadow-sm overflow-hidden dark:border-gray-800 bg-white dark:bg-black mt-1"
-                variants={container}
-                initial="hidden"
-                animate="show"
-                exit="exit"
-              >
-                <motion.ul>
-                  {result.actions.length > 0 ? (
-                    result.actions.map((action, index) => (
-                      <motion.li
-                        key={action.id}
-                        className={`px-3 py-2 flex items-center justify-between cursor-pointer rounded-md ${
-                          index === selectedIndex
-                            ? "bg-gray-200 dark:bg-zinc-900"
-                            : "hover:bg-gray-100 dark:hover:bg-zinc-800"
-                        }`}
-                        variants={item}
-                        layout
-                        onMouseEnter={() => setSelectedIndex(index)}
-                        onClick={() => alert(`You selected: ${action.label}`)}
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-gray-500">{action.icon}</span>
-                          <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                            {highlightMatch(action.label, query)}
-                          </span>
-                          <span className="text-xs text-gray-400">{action.description}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-400">{action.short}</span>
-                          <span className="text-xs text-gray-400">{action.end}</span>
-                        </div>
-                      </motion.li>
-                    ))
-                  ) : (
-                    <motion.li className="px-3 py-2 text-sm text-gray-500 text-center" variants={item}>
-                      No results found for “{query}”
+      <div className="w-full max-w-sm">
+        <AnimatePresence>
+          {isFocused && result && (
+            <motion.div
+              className="w-full border rounded-md shadow-sm overflow-hidden bg-white mt-1"
+              variants={container}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+            >
+              <motion.ul>
+                {result.actions.length > 0 ? (
+                  result.actions.map((action, index) => (
+                    <motion.li
+                      key={action.id}
+                      className={`px-3 py-2 flex items-center justify-between cursor-pointer rounded-md ${
+                        index === selectedIndex
+                          ? "bg-gray-200"
+                          : "hover:bg-gray-100"
+                      }`}
+                      variants={item}
+                      layout
+                      onMouseEnter={() => setSelectedIndex(index)}
+                      onClick={() => alert(`You selected: ${action.label}`)}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-500">{action.icon}</span>
+                        <span className="text-sm font-medium text-gray-900">
+                          {highlightMatch(action.label, query)}
+                        </span>
+                      </div>
+                      <span className="text-xs text-gray-400">{action.short}</span>
                     </motion.li>
-                  )}
-                </motion.ul>
-                <div className="mt-2 px-3 py-2 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500 flex justify-between">
-                  <span>Use ↑ ↓ to navigate</span>
-                  <span>ESC to cancel</span>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                  ))
+                ) : (
+                  <motion.li className="px-3 py-2 text-sm text-gray-500 text-center" variants={item}>
+                    No results found for “{query}”
+                  </motion.li>
+                )}
+              </motion.ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

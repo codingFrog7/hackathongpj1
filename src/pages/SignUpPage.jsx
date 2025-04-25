@@ -51,14 +51,14 @@ export default function SignUpPage() {
                 <div className="space-y-2">
                   <Input
                     className="h-12 border-gray-800 bg-gray-900 text-white placeholder:text-gray-400"
-                    placeholder="Dollar"
+                    placeholder="Froggy"
                     type="text"
                   />
                 </div>
                 <div className="space-y-2">
                   <Input
                     className="h-12 border-gray-800 bg-gray-900 text-white placeholder:text-gray-400"
-                    placeholder="Gill"
+                    placeholder="Greens"
                     type="text"
                   />
                 </div>
@@ -67,7 +67,7 @@ export default function SignUpPage() {
               <div className="space-y-2">
                 <Input
                   className="h-12 border-gray-800 bg-gray-900 text-white placeholder:text-gray-400"
-                  placeholder="EXAMPLE@FLOWERSANDSAINTS.COM.AU"
+                  placeholder="FROGGYGREENS@gmail.com"
                   type="email"
                 />
               </div>
