@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Search, Star, LogOut } from "lucide-react"
 import { SparklesCore } from "@/components/ui/sparkles"
+import HeroSlider from "./MiniCOP/HeroSlider"
 
 export default function Landing() {
   const [date, setDate] = useState(new Date())
@@ -84,12 +85,71 @@ export default function Landing() {
       rating: 4.3,
       image: "https://media.istockphoto.com/id/1395224980/photo/a-holy-city-north-india-filled-with-temples-and-religious-places.jpg?s=612x612&w=0&k=20&c=0mLTGDaGiuifFJko9sC0Xo-bWSNoFXQxgrtK5N4NMco="
       ,type: "Girls PG",
-    }
+    },{
+      id: "9",
+      title: "Modern 2BHK Apartment in Bangalore",
+      location: "Indiranagar, Bangalore",
+      price: "₹28,000/month",
+      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+      bedrooms: 2,
+      bathrooms: 2,
+      size: "1100 sqft",
+    },
+    {
+      id: "10",
+      title: "Cozy Studio in South Delhi",
+      location: "Hauz Khas, New Delhi",
+      price: "₹18,500/month",
+      imageUrl: "https://images.unsplash.com/photo-1572120360610-d971b9b78825?w=800&h=600&fit=crop",
+      bedrooms: 1,
+      bathrooms: 1,
+      size: "450 sqft",
+    },
+    {
+      id: "11",
+      title: "Luxury 3BHK Flat in Mumbai",
+      location: "Bandra West, Mumbai",
+      price: "₹95,000/month",
+      imageUrl: "https://images.unsplash.com/photo-1599423300746-b62533397364?w=800&h=600&fit=crop",
+      bedrooms: 3,
+      bathrooms: 3,
+      size: "1600 sqft",
+    },
+    {
+      id: "12",
+      title: "1BHK Budget Apartment",
+      location: "Hadapsar, Pune",
+      price: "₹10,000/month",
+      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+      bedrooms: 1,
+      bathrooms: 1,
+      size: "600 sqft",
+    },
+    {
+      id: "13",
+      title: "Spacious Villa with Garden",
+      location: "ECR, Chennai",
+      price: "₹65,000/month",
+      imageUrl: "https://images.unsplash.com/photo-1613977257363-707ba9348220?w=800&h=600&fit=crop",
+      bedrooms: 4,
+      bathrooms: 4,
+      size: "2400 sqft",
+    },
   ];
 
 
 
-  const categories = ["Popular", "Beach", "Mountain", "City", "Cabin", "Unique"]
+  const categories = [
+    "All",
+    "Girls PG",
+    "Boys PG",
+    "Shared Rooms",
+    "Private Rooms",
+    "Hostels",
+    "For Working Professionals",
+    "Near Colleges",
+  ];
+  
 
   return (
     <div className="min-h-screen text-white font-sans relative">
@@ -104,8 +164,11 @@ export default function Landing() {
           particleColor="#FFFFFF"
         />
       </div>
-
+  
       <div className="relative z-10">
+
+
+<HeroSlider/>
         <nav className="flex flex-wrap gap-4 px-6 py-4 border-b border-white text-white bg-black/50 backdrop-blur-sm">
           {categories.map((cat, index) => (
             <Button key={index} variant="ghost" className="text-white hover:bg-white hover:text-black text-sm">
@@ -113,18 +176,19 @@ export default function Landing() {
             </Button>
           ))}
         </nav>
-
+  
         <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {listings.map((listing, index) => (
+          {listings.map((listing) => (
             <Card
               key={listing.id}
-              className={`bg-neutral-900/80 backdrop-blur-sm border border-white rounded-xl overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 ${index === 2 || index === 5 ? "col-span-1 sm:col-span-2 row-span-2" : ""}`}
+              className="bg-neutral-900/80 backdrop-blur-sm border border-white rounded-xl overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-white/20"
             >
               <CardHeader className="p-0">
                 <img
                   src={listing.image}
                   alt={listing.title}
-                  className={`w-full ${index === 2 || index === 5 ? "h-72" : "h-48"} object-cover`} />
+                  className="w-full h-48 object-cover"
+                />
               </CardHeader>
               <CardContent className="p-4 text-white">
                 <CardTitle className="text-lg text-white">{listing.title}</CardTitle>
@@ -140,7 +204,7 @@ export default function Landing() {
             </Card>
           ))}
         </section>
-
+  
         <footer className="p-6 border-t border-white text-center text-sm text-white bg-black/50 backdrop-blur-sm">
           <div className="flex justify-center items-center gap-4">
             <a href="/getintouch" className="hover:text-gray-300 transition-colors">
@@ -151,5 +215,5 @@ export default function Landing() {
       </div>
     </div>
   )
-}
-
+  }
+  
