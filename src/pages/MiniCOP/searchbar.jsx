@@ -119,7 +119,7 @@ function ActionSearchBar() {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setTimeout(() => setIsFocused(false), 200)}
             onKeyDown={handleKeyDown}
-            className="pl-3 pr-9 py-1.5 h-9 text-sm rounded-lg focus-visible:ring-offset-0"
+            className="pl-3 pr-9 py-1.5 h-9 text-lg text-black rounded-lg focus-visible:ring-offset-0"
           />
           <div className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4">
             <AnimatePresence mode="popLayout">
