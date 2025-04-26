@@ -66,3 +66,9 @@
     @apply bg-background text-foreground;
   }
 }
+@font-face {
+  font-family: 'Fliege Mono';
+  src: url('/OTF/FliegeMono-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}

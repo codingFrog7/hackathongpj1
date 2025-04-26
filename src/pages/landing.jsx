@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Search, Star, LogOut } from "lucide-react"
 import { SparklesCore } from "@/components/ui/sparkles"
 import HeroSlider from "./MiniCOP/HeroSlider"
+import GetInTouch from "./GetInTouch"
 
 export default function Landing() {
   const [date, setDate] = useState(new Date())
@@ -207,9 +208,7 @@ export default function Landing() {
   
         <footer className="p-6 border-t border-white text-center text-sm text-white bg-black/50 backdrop-blur-sm">
           <div className="flex justify-center items-center gap-4">
-            <a href="/getintouch" className="hover:text-gray-300 transition-colors">
-              Get in Touch
-            </a>
+            <GetInTouch/>
           </div>
         </footer>
       </div>

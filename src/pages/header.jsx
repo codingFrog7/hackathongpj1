@@ -8,9 +8,9 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black flex items-center justify-between z-50">
+    <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black border-b-4 flex items-center justify-between rounded-b-2xl z-50">
       {/* Logo */}
-      <div className="text-white font-extrabold text-2xl">RENTEAZY</div>
+      <div className="text-white font-['Fliege_Mono'] font-extrabold text-xl border-8 leading-4 p-1 border-white">RENT<br/>EAZY</div>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-6">
