@@ -86,7 +86,7 @@ export default function AirbnbHome() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <header className="sticky top-0 z-50 bg-black flex items-center justify-between px-6 py-4 border-b border-white">
-        <h1 className="text-3xl font-bold tracking-tight text-white">airbnb</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-white">RENTEAZY</h1>
         <div className="flex items-center gap-4">
           <Tabs />
           <ActionSearchBar />

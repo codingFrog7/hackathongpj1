@@ -1,14 +1,13 @@
 import React from 'react'
-import Hero from './MiniCOP/bg'
 import Landing from './landing'
-import SignUpPage from './SignUpPage'
 
-const Main = () => {
+
+const Wrap = () => {
   return (
     <div className=''>
-       <SignUpPage/>
+       <Landing/>
     </div>
   )
 }
 
-export default Main
+export default Wrap
