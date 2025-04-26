@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 
 export default function GetInTouch() {
   return (
-    <div className="min-h-screen w-full bg-black text-white flex flex-col items-center justify-center p-4 md:p-8">
+    <div className="min-h-screen w-full bg-black  text-white flex flex-col items-center justify-center p-4 md:p-8">
       <div className="w-full h-full flex flex-col items-center justify-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">Get in Touch</h1>
         <div className="w-full h-full flex-1 flex items-center justify-center">
-          <form className="w-full h-full bg-zinc-900 p-4 md:p-8 rounded-lg shadow-lg space-y-4 md:space-y-6 flex flex-col justify-center">
+          <form className="w-screen md:w-2/4 h-full bg-zinc-900 p-4 md:p-8 rounded-lg shadow-lg space-y-4 md:space-y-6 flex flex-col justify-center">
             <Input
               type="text"
               placeholder="Your Name"
