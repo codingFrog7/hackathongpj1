@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black flex items-center justify-between z-50">
       {/* Logo */}
-      <div className="text-white font-extrabold text-2xl">WEBAGE</div>
+      <div className="text-white font-extrabold text-2xl">RENTEAZY</div>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-6">

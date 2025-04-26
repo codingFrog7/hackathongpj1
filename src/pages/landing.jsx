@@ -7,10 +7,9 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Search, Star, LogOut } from "lucide-react"
-import Tabs from "@/pages/MiniCOP/nav"
-import ActionSearchBar from "@/pages/MiniCOP/searchbar"
+import { SparklesCore } from "@/components/ui/sparkles"
 
-export default function AirbnbHome() {
+export default function Landing() {
   const [date, setDate] = useState(new Date())
 
   const listings = [
@@ -61,7 +60,7 @@ export default function AirbnbHome() {
     },
     {
       id: 6,
-    title: "Working Men’s PG in Ameerpet",
+    title: "Working Men's PG in Ameerpet",
     location: "Hyderabad, Telangana",
     price: "₹6,200/month",
     rating: 4.1,
@@ -93,54 +92,64 @@ export default function AirbnbHome() {
   const categories = ["Popular", "Beach", "Mountain", "City", "Cabin", "Unique"]
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <header className="sticky top-0 z-50 bg-black flex items-center justify-between px-6 py-4 border-b border-white">
-        <h1 className="text-3xl font-bold tracking-tight text-white">RENTEAZY</h1>
-        <div className="flex items-center gap-4">
-          <Tabs />
-          <ActionSearchBar />
-        </div>
-        <Button variant='ghost'> <LogOut /></Button>
-      </header>
+    <div className="min-h-screen text-white font-sans relative">
+      <div className="fixed inset-0 z-0 bg-black">
+        <SparklesCore
+          id="tsparticles"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="h-full w-full"
+          particleColor="#FFFFFF"
+        />
+      </div>
 
-      <nav className="flex flex-wrap gap-4 px-6 py-4 border-b border-white text-white bg-black">
-        {categories.map((cat, index) => (
-          <Button key={index} variant="ghost" className="text-white hover:bg-white hover:text-black text-sm">
-            {cat}
-          </Button>
-        ))}
-      </nav>
+      <div className="relative z-10">
+        <nav className="flex flex-wrap gap-4 px-6 py-4 border-b border-white text-white bg-black/50 backdrop-blur-sm">
+          {categories.map((cat, index) => (
+            <Button key={index} variant="ghost" className="text-white hover:bg-white hover:text-black text-sm">
+              {cat}
+            </Button>
+          ))}
+        </nav>
 
-      <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {listings.map((listing, index) => (
-          <Card
-            key={listing.id}
-            className={`bg-neutral-900 border border-white rounded-xl overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 ${index === 2 || index === 5 ? "col-span-1 sm:col-span-2 row-span-2" : ""}`}
-          >
-            <CardHeader className="p-0">
-              <img
-                src={listing.image}
-                alt={listing.title}
-                className={`w-full ${index === 2 || index === 5 ? "h-72" : "h-48"} object-cover`} />
-            </CardHeader>
-            <CardContent className="p-4 text-white">
-              <CardTitle className="text-lg text-white">{listing.title}</CardTitle>
-              <p className="text-sm text-white/80">{listing.location}</p>
-              <div className="flex items-center justify-between mt-2 text-white">
-                <span>{listing.price}</span>
-                <span className="flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-white text-white" />
-                  {listing.rating}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </section>
+        <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {listings.map((listing, index) => (
+            <Card
+              key={listing.id}
+              className={`bg-neutral-900/80 backdrop-blur-sm border border-white rounded-xl overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 ${index === 2 || index === 5 ? "col-span-1 sm:col-span-2 row-span-2" : ""}`}
+            >
+              <CardHeader className="p-0">
+                <img
+                  src={listing.image}
+                  alt={listing.title}
+                  className={`w-full ${index === 2 || index === 5 ? "h-72" : "h-48"} object-cover`} />
+              </CardHeader>
+              <CardContent className="p-4 text-white">
+                <CardTitle className="text-lg text-white">{listing.title}</CardTitle>
+                <p className="text-sm text-white/80">{listing.location}</p>
+                <div className="flex items-center justify-between mt-2 text-white">
+                  <span>{listing.price}</span>
+                  <span className="flex items-center gap-1">
+                    <Star className="w-4 h-4 fill-white text-white" />
+                    {listing.rating}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </section>
 
-      <footer className="p-6 border-t border-white text-center text-sm text-white bg-black">
-        © 2025 Airbnb Clone. All rights reserved.
-      </footer>
+        <footer className="p-6 border-t border-white text-center text-sm text-white bg-black/50 backdrop-blur-sm">
+          <div className="flex justify-center items-center gap-4">
+            <a href="/getintouch" className="hover:text-gray-300 transition-colors">
+              Get in Touch
+            </a>
+          </div>
+        </footer>
+      </div>
     </div>
   )
 }
+

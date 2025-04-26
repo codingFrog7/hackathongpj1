@@ -1,11 +1,14 @@
 import React from 'react'
 import Landing from './landing'
+import Header from './header'
 
 
 const Wrap = () => {
   return (
     <div className=''>
-       <Landing/>
+      <Header />
+      <Landing />
+
     </div>
   )
 }
