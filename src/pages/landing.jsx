@@ -62,12 +62,12 @@ export default function Landing() {
     },
     {
       id: 6,
-    title: "Working Men's PG in Ameerpet",
-    location: "Hyderabad, Telangana",
-    price: "₹6,200/month",
-    rating: 4.1,
+      title: "Working Men's PG in Ameerpet",
+      location: "Hyderabad, Telangana",
+      price: "₹6,200/month",
+      rating: 4.1,
       image: "https://images.unsplash.com/photo-1708616178113-f687b1113414?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ,    type: "Mens PG",
+      , type: "Mens PG",
     },
     {
       id: 7,
@@ -76,7 +76,7 @@ export default function Landing() {
       price: "₹4,800/month",
       rating: 3.9,
       image: "https://media.istockphoto.com/id/2198113175/photo/interior-of-vintage-style-bedroom-with-with-window-curtains.jpg?s=612x612&w=0&k=20&c=94lLPf67kJsR2Csa0J5eiZyvsos4Urx4D_OibXq9lh8="
-    ,type: "Student PG",
+      , type: "Student PG",
     },
     {
       id: 8,
@@ -85,8 +85,8 @@ export default function Landing() {
       price: "₹6,800/month",
       rating: 4.3,
       image: "https://media.istockphoto.com/id/1395224980/photo/a-holy-city-north-india-filled-with-temples-and-religious-places.jpg?s=612x612&w=0&k=20&c=0mLTGDaGiuifFJko9sC0Xo-bWSNoFXQxgrtK5N4NMco="
-      ,type: "Girls PG",
-    },{
+      , type: "Girls PG",
+    }, {
       id: "9",
       title: "Modern 2BHK Apartment in Bangalore",
       location: "Indiranagar, Bangalore",
@@ -150,7 +150,7 @@ export default function Landing() {
     "For Working Professionals",
     "Near Colleges",
   ];
-  
+
 
   return (
     <div className="min-h-screen text-white font-sans relative">
@@ -165,11 +165,11 @@ export default function Landing() {
           particleColor="#FFFFFF"
         />
       </div>
-  
+
       <div className="relative z-10">
 
 
-<HeroSlider/>
+        <HeroSlider />
         <nav className="flex flex-wrap gap-4 px-6 py-4 border-b border-white text-white bg-black/50 backdrop-blur-sm">
           {categories.map((cat, index) => (
             <Button key={index} variant="ghost" className="text-white hover:bg-white hover:text-black text-sm">
@@ -177,7 +177,7 @@ export default function Landing() {
             </Button>
           ))}
         </nav>
-  
+
         <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {listings.map((listing) => (
             <Card
@@ -205,14 +205,13 @@ export default function Landing() {
             </Card>
           ))}
         </section>
-  
+
         <footer className="p-6 border-t border-white text-center text-sm text-white bg-black/50 backdrop-blur-sm">
           <div className="flex justify-center items-center gap-4">
-            <GetInTouch/>
+            <GetInTouch />
           </div>
         </footer>
       </div>
     </div>
   )
-  }
-  
+}
