@@ -86,56 +86,8 @@ export default function Landing() {
       rating: 4.3,
       image: "https://media.istockphoto.com/id/1395224980/photo/a-holy-city-north-india-filled-with-temples-and-religious-places.jpg?s=612x612&w=0&k=20&c=0mLTGDaGiuifFJko9sC0Xo-bWSNoFXQxgrtK5N4NMco="
       , type: "Girls PG",
-    }, {
-      id: "9",
-      title: "Modern 2BHK Apartment in Bangalore",
-      location: "Indiranagar, Bangalore",
-      price: "₹28,000/month",
-      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
-      bedrooms: 2,
-      bathrooms: 2,
-      size: "1100 sqft",
     },
-    {
-      id: "10",
-      title: "Cozy Studio in South Delhi",
-      location: "Hauz Khas, New Delhi",
-      price: "₹18,500/month",
-      imageUrl: "https://images.unsplash.com/photo-1572120360610-d971b9b78825?w=800&h=600&fit=crop",
-      bedrooms: 1,
-      bathrooms: 1,
-      size: "450 sqft",
-    },
-    {
-      id: "11",
-      title: "Luxury 3BHK Flat in Mumbai",
-      location: "Bandra West, Mumbai",
-      price: "₹95,000/month",
-      imageUrl: "https://images.unsplash.com/photo-1599423300746-b62533397364?w=800&h=600&fit=crop",
-      bedrooms: 3,
-      bathrooms: 3,
-      size: "1600 sqft",
-    },
-    {
-      id: "12",
-      title: "1BHK Budget Apartment",
-      location: "Hadapsar, Pune",
-      price: "₹10,000/month",
-      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
-      bedrooms: 1,
-      bathrooms: 1,
-      size: "600 sqft",
-    },
-    {
-      id: "13",
-      title: "Spacious Villa with Garden",
-      location: "ECR, Chennai",
-      price: "₹65,000/month",
-      imageUrl: "https://content.jdmagicbox.com/comp/bareilly/v3/9999px581.x581.211220182616.l7v3/catalogue/rastogi-boys-pg-green-park-bareilly-paying-guest-accommodations-for-student-umhywm4c2f.jpg",
-      bedrooms: 4,
-      bathrooms: 4,
-      size: "2400 sqft",
-    },
+    
   ];
 
 

@@ -26,7 +26,7 @@ export default function Navbar() {
         {/* User Profile Popup */}
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="ghost" className="text-white hover:bg-white/10">
+            <Button variant="ghost" className="text-black bg-white hover:bg-white/10 hover:text-white ">
               <User />
             </Button>
           </DialogTrigger>
