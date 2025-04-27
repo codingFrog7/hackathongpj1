@@ -1,5 +1,6 @@
-import React from "react"
-import { LogOut, MoveUpRight, Settings, FileText, User } from "lucide-react"
+import React from "react";
+import { LogOut, MoveUpRight, Settings, FileText, User } from "lucide-react";
+import { Link } from "react-router-dom"; // Correct import for SPA
 
 function UserProfile({
   name = "John Doe",
@@ -9,21 +10,20 @@ function UserProfile({
   const menuItems = [
     {
       label: "Profile",
-      href: "#",
       icon: <User className="w-4 h-4" />,
+      to: "/EditProfile",
     },
     {
       label: "Settings",
-      href: "#",
       icon: <Settings className="w-4 h-4" />,
+      to: "/Settings",
     },
     {
       label: "Terms & Policies",
-      href: "#",
       icon: <FileText className="w-4 h-4" />,
-      external: true,
+      to: "/terms-policies",
     },
-  ]
+  ];
 
   return (
     <div className="w-64 bg-zinc-900 rounded-lg shadow-lg border border-zinc-700">
@@ -48,19 +48,17 @@ function UserProfile({
 
         <div className="space-y-1">
           {menuItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.to}
               className="flex items-center justify-between p-2 hover:bg-zinc-800 rounded-lg transition-colors duration-200"
-              target={item.external ? "_blank" : "_self"}
-              rel={item.external ? "noopener noreferrer" : ""}
             >
               <div className="flex items-center gap-2">
                 {item.icon}
                 <span className="text-xs font-medium text-white">{item.label}</span>
               </div>
-              {item.external && <MoveUpRight className="w-3 h-3 text-zinc-400" />}
-            </a>
+              <MoveUpRight className="w-3 h-3 text-zinc-400" />
+            </Link>
           ))}
 
           <button
@@ -75,7 +73,8 @@ function UserProfile({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default UserProfile
+export default UserProfile;
+

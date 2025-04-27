@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import GetInTouch from './pages/GetInTouch';
 import Dashboard from './pages/dashboard';
+import EditProfile from './pages/MiniCOP/EditProfile';
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         <Route path='/SignUpPage' element={<SignUpPage />} />
         <Route path='/LoginPage' element={<LoginPage />} />
         <Route path='/GetinTouch' element={<GetInTouch />} />
-        <Route path='/DashBoard' element={<Dashboard/>} />
+        <Route path='/DashBoard' element={<Dashboard />} />
+        <Route path='/EditProfile' element={<EditProfile/>} />
       </Routes>
 
     </div>

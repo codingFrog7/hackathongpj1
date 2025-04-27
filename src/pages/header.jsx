@@ -1,4 +1,4 @@
-"use client";
+"Use client";
 
 import { useState } from "react";
 import { Menu, X, User } from "lucide-react";
@@ -12,16 +12,17 @@ export default function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black border-b-4 flex items-center justify-between rounded-b-2xl z-50">
+    <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black border-b-4 flex items-center justify-evenly rounded-b-2xl z-50">
       {/* Logo */}
       <div className="text-white font-['Fliege_Mono'] font-extrabold text-xl border-8 leading-4 p-1 border-white">
         RENT<br />EAZY
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-6 ml-auto">
-        <Tabs />
+      <div className="hidden md:flex items-center gap-6 ml-auto md:w-2/3 ">
         <ActionSearchBar />
+
+        <Tabs />
 
         {/* User Profile Button */}
         <div className="relative">
@@ -32,7 +33,7 @@ export default function Navbar() {
           >
             <User />
           </Button>
-          
+
           {isProfileOpen && (
             <div className="absolute right-0 top-full mt-2 z-50">
               <UserProfile />
