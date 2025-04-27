@@ -13,7 +13,7 @@ export default function Dashboard() {
           <p className="text-sm text-gray-400">Manage your account and view recent activity.</p>
         </div>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+          <AvatarImage src="" alt="User" />
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
       </header>

@@ -2,16 +2,16 @@ import React from 'react'
 import Landing from './landing'
 import Header from './header'
 import UserProfile from './UserProfile'
+import { Home } from 'lucide-react'
 
 
-const Wrap = () => {
+const Homepage = () => {
   return (
     <div className=''>
-     
-      <UserProfile />
-
+      <Header />
+      <Landing />
     </div>
   )
 }
 
-export default Wrap
+export default Homepage

@@ -1,10 +1,18 @@
-
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { House,MapPinHouse ,Building,Map,LayoutPanelTop } from 'lucide-react';
+import { House, Key, LogIn, LayoutDashboard,HeartHandshake  } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 const Tabs = () => {
-  const tabs = [<House />, <MapPinHouse />, <Building />,<Map /> ,<LayoutPanelTop />]
+  const navigate = useNavigate();
+  const tabs = [
+    { icon: <House />, path: '/' },
+    { icon: <Key />, path: '/SignUpPage' },
+    { icon: <LogIn />, path: '/LoginPage' },
+    { icon: <LayoutDashboard />, path: '/DashBoard' },
+    { icon: <HeartHandshake />, path: '/GetinTouch' }
+  ]
 
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -49,6 +57,11 @@ const Tabs = () => {
     })
   }, [])
 
+  const handleTabClick = (index, path) => {
+    setActiveIndex(index);
+    navigate(path);
+  };
+
   return (
     <div className="flex justify-center items-center h-12 ">
       <div className="w-full max-w-[1200px] h-[100px] relative flex items-center justify-center">
@@ -79,10 +92,10 @@ const Tabs = () => {
                     }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleTabClick(index, tab.path)}
                 >
-                  <div className=" leading-5 whitespace-nowrap flex items-center justify-center h-full">
-                    {tab}
+                  <div className="leading-5 whitespace-nowrap flex items-center justify-center h-full">
+                    {tab.icon}
                   </div>
                 </div>
               ))}

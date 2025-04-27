@@ -131,7 +131,7 @@ export default function Landing() {
       title: "Spacious Villa with Garden",
       location: "ECR, Chennai",
       price: "₹65,000/month",
-      imageUrl: "https://images.unsplash.com/photo-1613977257363-707ba9348220?w=800&h=600&fit=crop",
+      imageUrl: "https://content.jdmagicbox.com/comp/bareilly/v3/9999px581.x581.211220182616.l7v3/catalogue/rastogi-boys-pg-green-park-bareilly-paying-guest-accommodations-for-student-umhywm4c2f.jpg",
       bedrooms: 4,
       bathrooms: 4,
       size: "2400 sqft",
