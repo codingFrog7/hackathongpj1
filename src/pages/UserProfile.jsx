@@ -1,111 +1,81 @@
-import React, { useState } from "react";
-import "./UserProfile.css";
+import React from "react"
+import { LogOut, MoveUpRight, Settings, FileText, User } from "lucide-react"
 
-const initialProfile = {
-  name: "Jessica Alba",
-  username: "jennywilson",
-  displayName: "Jenny Wilson",
-  email: "jenny@gmail.com",
-  address: "New York, USA",
-  nickname: "Sky Angel",
-  dob: "April 28, 1981",
-  avatar: "https://randomuser.me/api/portraits/women/44.jpg", // Replace with your image if needed
-};
-
-const EditableField = ({ label, value, onChange }) => {
-  const [editing, setEditing] = useState(false);
-  const [temp, setTemp] = useState(value);
-
-  const handleSave = () => {
-    setEditing(false);
-    onChange(temp);
-  };
+function UserProfile({
+  name = "John Doe",
+  role = "Prompt Engineer",
+  avatar = "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
+} = {}) {
+  const menuItems = [
+    {
+      label: "Profile",
+      href: "#",
+      icon: <User className="w-4 h-4" />,
+    },
+    {
+      label: "Settings",
+      href: "#",
+      icon: <Settings className="w-4 h-4" />,
+    },
+    {
+      label: "Terms & Policies",
+      href: "#",
+      icon: <FileText className="w-4 h-4" />,
+      external: true,
+    },
+  ]
 
   return (
-    <div className="profile-row">
-      <div className="profile-label">{label}</div>
-      <div className="profile-value">
-        {editing ? (
-          <>
-            <input
-              className="profile-input"
-              value={temp}
-              onChange={e => setTemp(e.target.value)}
-              autoFocus
+    <div className="w-64 bg-zinc-900 rounded-lg shadow-lg border border-zinc-700">
+      <div className="p-4">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="relative shrink-0">
+            <img
+              src={avatar}
+              alt={name}
+              className="w-12 h-12 rounded-full ring-2 ring-zinc-800 object-cover"
             />
-            <button className="profile-save-btn" onClick={handleSave}>Save</button>
-          </>
-        ) : (
-          <>
-            {value}
-            <span className="profile-edit-icon" onClick={() => setEditing(true)}>
-              ✎
-            </span>
-          </>
-        )}
-      </div>
-    </div>
-  );
-};
+            <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-zinc-800" />
+          </div>
 
-export default function UserProfile() {
-  const [profile, setProfile] = useState(initialProfile);
+          <div className="flex-1">
+            <h2 className="text-sm font-semibold text-white">{name}</h2>
+            <p className="text-xs text-zinc-400">{role}</p>
+          </div>
+        </div>
 
-  const handleFieldChange = (field, value) => {
-    setProfile(prev => ({ ...prev, [field]: value }));
-  };
+        <div className="h-px bg-zinc-700 my-3" />
 
-  return (
-    <div className="profile-container">
-      <nav className="profile-navbar">
-        <div className="nav-item">Dashboard</div>
-        <div className="nav-item active">Edit Profile</div>
-        <div className="nav-item">Edit Password</div>
-        <div className="nav-item">User Logout</div>
-      </nav>
-      <div className="profile-card">
-        <img className="profile-avatar" src={profile.avatar} alt="avatar" />
-        <h2 className="profile-name">{profile.name}</h2>
-        <div className="profile-username">
-          @{profile.username}
-          <span
-            className="profile-edit-icon"
-            onClick={() => {
-              const newUsername = prompt("Edit username:", profile.username);
-              if (newUsername) handleFieldChange("username", newUsername);
-            }}
+        <div className="space-y-1">
+          {menuItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="flex items-center justify-between p-2 hover:bg-zinc-800 rounded-lg transition-colors duration-200"
+              target={item.external ? "_blank" : "_self"}
+              rel={item.external ? "noopener noreferrer" : ""}
+            >
+              <div className="flex items-center gap-2">
+                {item.icon}
+                <span className="text-xs font-medium text-white">{item.label}</span>
+              </div>
+              {item.external && <MoveUpRight className="w-3 h-3 text-zinc-400" />}
+            </a>
+          ))}
+
+          <button
+            type="button"
+            className="w-full flex items-center justify-between p-2 hover:bg-zinc-800 rounded-lg transition-colors duration-200"
           >
-            ✎
-          </span>
-        </div>
-        <div className="profile-fields">
-          <EditableField
-            label="Username"
-            value={profile.displayName}
-            onChange={val => handleFieldChange("displayName", val)}
-          />
-          <EditableField
-            label="Email"
-            value={profile.email}
-            onChange={val => handleFieldChange("email", val)}
-          />
-          <EditableField
-            label="Address"
-            value={profile.address}
-            onChange={val => handleFieldChange("address", val)}
-          />
-          <EditableField
-            label="Nickname"
-            value={profile.nickname}
-            onChange={val => handleFieldChange("nickname", val)}
-          />
-          <EditableField
-            label="DOB"
-            value={profile.dob}
-            onChange={val => handleFieldChange("dob", val)}
-          />
+            <div className="flex items-center gap-2">
+              <LogOut className="w-4 h-4" />
+              <span className="text-xs font-medium text-white">Logout</span>
+            </div>
+          </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
+
+export default UserProfile

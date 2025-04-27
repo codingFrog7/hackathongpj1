@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import Tabs from "./MiniCOP/nav";
+import Tabs from "./MiniCOP/Tabs";
 import ActionSearchBar from "./MiniCOP/searchbar";
-import UserProfile from "./UserProfile"; // Make sure you import this correctly
+import UserProfile from "./UserProfile";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
     <div className="fixed top-0 left-0 w-full h-20 px-6 bg-black border-b-4 flex items-center justify-between rounded-b-2xl z-50">
@@ -23,17 +23,22 @@ export default function Navbar() {
         <Tabs />
         <ActionSearchBar />
 
-        {/* User Profile Popup */}
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="ghost" className="text-black bg-white hover:bg-white/10 hover:text-white ">
-              <User />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="bg-white p-0 max-w-lg rounded-2xl overflow-hidden">
-            <UserProfile />
-          </DialogContent>
-        </Dialog>
+        {/* User Profile Button */}
+        <div className="relative">
+          <Button 
+            variant="ghost" 
+            className="bg-gradient-to-r from-amber-600 to-amber-400"
+            onClick={() => setIsProfileOpen(!isProfileOpen)}
+          >
+            <User />
+          </Button>
+          
+          {isProfileOpen && (
+            <div className="absolute right-0 top-full mt-2 z-50">
+              <UserProfile />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Mobile Menu Button */}
